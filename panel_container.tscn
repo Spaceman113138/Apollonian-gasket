@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqc36ieyc7shq"]
+
+[ext_resource type="Script" path="res://panel_container.gd" id="1_njijt"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 146.0
+script = ExtResource("1_njijt")
+
+[node name="Control" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Control"]
+layout_mode = 2
+text = "Color Fractal"
+
+[node name="Hbox" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Hbox"]
+layout_mode = 2
+text = "Num Itterations: "
+
+[node name="LineEdit" type="LineEdit" parent="Control/Hbox"]
+layout_mode = 2
+
+[node name="circleSize" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/circleSize"]
+layout_mode = 2
+text = "Circle Size: "
+
+[node name="sizeEdit" type="LineEdit" parent="Control/circleSize"]
+layout_mode = 2
+
+[connection signal="toggled" from="Control/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="text_changed" from="Control/Hbox/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="Control/Hbox/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="Control/circleSize/sizeEdit" to="." method="_on_size_edit_text_submitted"]

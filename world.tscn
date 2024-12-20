@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5a22ba5hdnxq"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_h157w"]
+[ext_resource type="PackedScene" uid="uid://bqc36ieyc7shq" path="res://panel_container.tscn" id="2_e24ui"]
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_h157w")
+useColor = true
+maxCurve = 150.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(300, 300)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" parent="CanvasLayer" instance=ExtResource("2_e24ui")]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 204.0
+grow_vertical = 2
